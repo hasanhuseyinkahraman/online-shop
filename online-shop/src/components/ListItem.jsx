@@ -1,8 +1,5 @@
-import React from 'react'
 import {useLocation} from 'react-router';
-import { useState } from 'react';
-const ListItem = ({ product }) => {
-    const [isDeleted, setIsDeleted] = useState(false);
+const ListItem = ({ product, onRemove }) => {
     const location = useLocation();
 
 
@@ -25,13 +22,10 @@ const ListItem = ({ product }) => {
       });
       
       if (response.ok) {
-        setIsDeleted(true);
+        onRemove(product.id);
       }
     };
 
-    if (isDeleted) {
-            return null;
-        }
   return (
     <div className="w-72 h-99 bg-gray-100 outline-1 outline-gray-300 rounded-2xl overflow-clip">
         <img src={product.image} alt={product.title} className="w-full rounded-b-2xl" />

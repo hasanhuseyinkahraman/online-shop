@@ -1,4 +1,3 @@
-import React from 'react'
 import { FaBasketballBall } from "react-icons/fa";
 import { Link } from 'react-router';
 export const Header = () => {

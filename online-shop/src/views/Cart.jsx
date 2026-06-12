@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import ListItem from "../components/ListItem";
 export const Cart = () => {
   const [cart, setCart] = useState([]);
@@ -13,6 +13,10 @@ export const Cart = () => {
     getCart();
   }, []);
 
+  const handleRemoveItem = (id) => {
+    setCart((prevCart) => prevCart.filter((item) => item.id !== id));
+  };
+
   return (
     <div>
       {cart.length === 0 ? (
@@ -21,7 +25,7 @@ export const Cart = () => {
         <div className="flex justify-center my-10">
           <div className="grid grid-cols-4 gap-5">
             {cart.map((product) => (
-              <ListItem key={product.id} product={product} />
+              <ListItem key={product.id} product={product} onRemove={handleRemoveItem} />
             ))}
           </div>
         </div>
