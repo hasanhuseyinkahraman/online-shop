@@ -29,7 +29,7 @@ const ListItem = ({ product, onRemove }) => {
   return (
     <div className="w-72 h-99 bg-gray-100 outline-1 outline-gray-300 rounded-2xl overflow-clip">
         <img src={product.image} alt={product.title} className="w-full rounded-b-2xl" />
-        <div className="p-3 ">
+        <div className="p-3">
             <p className="text-nowrap truncate">{product.title}</p>
             <div className="flex justify-between"><p className="text-sm text-gray-500">{product.category}</p><p className="">{product.price} TRY</p></div>
             
